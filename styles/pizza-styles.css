@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: darkred;
     margin: 0;
@@ -16,4 +20,34 @@ body {
     border-radius: .25rem;
     padding: 2rem 1rem;
     margin-bottom: 2rem;
+}
+
+#header img {
+    max-width: 200px;
+    float: right;
+}
+
+#header h1 {
+    font-weight: 600;
+    color: darkgreen;
+    font-size: 3.5rem;
+}
+
+#contact-button {
+    border: none;
+    background-color: darkgreen;
+    border-color: darkgreen;
+    padding: .5rem .75rem;
+    border-radius: .25rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+    border: 1px solid darkgreen;
+    border-radius: .25em;
+    margin: 0rem 0rem 1rem 0rem;
+    padding: .75rem;
 }
