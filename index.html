@@ -47,6 +47,41 @@
                 </label>
             </fieldset>
 
+            <!-- Select Toppings -->
+            <fieldset>
+                <legend>Select Toppings</legend>
+                <label for="pepperoni">
+                    <input type="checkbox" id="pepperoni" 
+                           name="toppings[]" value="pepperoni">
+                    Pepperoni
+                </label>
+                <label for="olives">
+                    <input type="checkbox" id="olives" 
+                           name="toppings[]" value="olives">
+                    Olives
+                </label>
+                <label for="mushrooms">
+                    <input type="checkbox" id="mushrooms" 
+                           name="toppings[]" value="mushrooms">
+                    Mushrooms
+                </label>
+            </fieldset>            
+
+            <!-- Select Pizza Size -->
+            <fieldset>
+                <legend>Select Pizza Size</legend>
+                <select id="size" name="size">
+                    <option value="none">-- Select a Size --</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+            </fieldset>
+
+            <!-- Comment field -->
+            <label for="comment">Comments</label>
+            <textarea rows="5" id="comment" name="comment"></textarea>
+
             <!-- Order button -->
             <button type="submit" id="order-button">Place Order</button>
         </form>
