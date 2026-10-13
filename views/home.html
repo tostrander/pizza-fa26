@@ -9,7 +9,10 @@
     <link rel="icon" href="images/pizza-icon.jpg">
     
     <!-- Stylesheet -->
-     <link rel="stylesheet" href="styles/pizza-styles.css">
+    <link rel="stylesheet" href="styles/pizza-styles.css">
+
+    <!-- JavaScript -->
+    <script src="scripts/pizza.js" defer></script>
 </head>
 <body>
     <div id="main">
@@ -26,10 +29,14 @@
             <!-- Contact Info -->
             <fieldset>
                 <legend>Contact Info</legend>
-                <label for="fname">First Name:</label>
+                <label for="fname">First Name:
                 <input type="text" id="fname" name="fname">
+                <span class="err" id="err-fname">First name is required</span>
+                
                 <label for="lname">Last Name:</label>
                 <input type="text" id="lname" name="lname">
+                <span class="err" id="err-lname">Last name is required</span>
+  
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email">
             </fieldset>
