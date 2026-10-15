@@ -44,6 +44,8 @@
             <!-- Pickup or Delivery -->
             <fieldset>
                 <legend>Select Pickup or Delivery</legend>
+                <span class="err" id="err-method">Select pickup or delivery</span>
+
                 <label for="pickup">
                     <input type="radio" id="pickup" name="method" value="pickup">
                     Pickup
@@ -77,6 +79,8 @@
             <!-- Select Pizza Size -->
             <fieldset>
                 <legend>Select Pizza Size</legend>
+                <span class="err" id="err-size">Select a size</span>
+
                 <select id="size" name="size">
                     <option value="none">-- Select a Size --</option>
                     <option value="small">Small</option>
