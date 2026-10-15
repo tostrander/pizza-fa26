@@ -77,5 +77,8 @@ textarea {
 
 .err {
     color: darkred;
+    font-size: 0.85rem;
     display: none;
+    margin-top: -0.75rem;
+    margin-bottom: 0.75rem;
 }
