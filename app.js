@@ -40,7 +40,7 @@ app.post('/submit-order', (req, res) => {
 
     // Create a JSON object to store order data
     const order = req.body;
-    order['timestamp'] = new Date();
+    order.timestamp = new Date();
 
     console.log(order);
 
@@ -51,6 +51,11 @@ app.post('/submit-order', (req, res) => {
     // Display the confirmation page
     res.sendFile(`${import.meta.dirname}/views/confirm.html`);
 
+});
+
+// Add an admin route
+app.get('/admin', (req, res) => {
+    res.send(orders);
 });
 
 // Start the server on the designated port
