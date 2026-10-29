@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+
+    <!-- Add data table resources -->
+    <script src="//code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="//cdn.datatables.net/3.1.4/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/4.1.1/js/dataTables.responsive.min.js"></script>
+
+    <link rel="stylesheet" href="//cdn.datatables.net/3.1.4/css/dataTables.dataTables.min.css">
+    <link href="https://cdn.datatables.net/responsive/4.1.1/css/responsive.dataTables.min.css" rel="stylesheet">
+ 
+</head>
+<body>
+    <h1>Orders</h1>
+
+    <table id="order-table" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Toppings</th>
+            <th>Size</th>
+            <th>Method</th>
+            <th>Comment</th>
+            <th>Date/Time</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% orders.forEach(order => { %>
+        <tr>
+            <td><%= order.fname %> <%= order.lname %></td>
+            <td><%= order.email %></td>
+            <td><%= order.toppings %></td>
+            <td><%= order.size %></td>
+            <td><%= order.method %></td>
+            <td><%= order.comment %></td>
+            <td><%= order.timestamp.toLocaleString() %></td>
+        </tr>
+    <% }); %>
+    </tbody>
+    </table>
+
+    <script>
+        new DataTable('#order-table', {
+            responsive: true
+        });
+    </script>
+</body>
+</html>

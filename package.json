@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/tostrander/pizza-fa26#readme",
   "dependencies": {
+    "ejs": "^7.0.2",
     "express": "^5.2.1"
   },
   "devDependencies": {

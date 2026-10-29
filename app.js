@@ -19,21 +19,26 @@ app.use(express.static('public'));
 // Access form data through req.body
 app.use(express.urlencoded({ extended: true }));
 
+// Set view engine to EJS
+app.set('view engine', 'ejs');
+
 // Define a default route ("/")
 app.get('/', (req, res) => {
     //res.send('Welcome to Poppa\'s Pizza');
-    res.sendFile(`${import.meta.dirname}/views/home.html`);
+    res.render('home');
 });
 
 // Add a contact route to display a contact view page
 app.get('/contact-us', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/contact.html`);
+    res.render('contact');
 });
 
+/*
 // Add an order confirmation route
 app.get('/confirm-order', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/confirm.html`);
+    res.render('confirm');
 });
+*/
 
 // Add a route to process a pizza order
 app.post('/submit-order', (req, res) => {
@@ -49,13 +54,12 @@ app.post('/submit-order', (req, res) => {
     console.log(orders);
 
     // Display the confirmation page
-    res.sendFile(`${import.meta.dirname}/views/confirm.html`);
-
+    res.render('confirm', { order });
 });
 
 // Add an admin route
 app.get('/admin', (req, res) => {
-    res.send(orders);
+    res.render('admin', { orders });
 });
 
 // Start the server on the designated port
