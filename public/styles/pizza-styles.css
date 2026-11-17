@@ -44,7 +44,7 @@ body {
     font-size: 1rem;
 }
 
-input[type="text"], input[type="email"], select, textarea {
+input[type="text"], input[type="email"], input[type="password"], select, textarea {
     width: 100%;
     border: 1px solid darkgreen;
     border-radius: .25em;
@@ -81,4 +81,9 @@ textarea {
     display: none;
     margin-top: -0.75rem;
     margin-bottom: 0.75rem;
+}
+
+.login-error {
+    color: darkred;
+    font-weight: bold;
 }

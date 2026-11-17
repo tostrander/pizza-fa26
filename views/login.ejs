@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Login</title>
+    <link rel="stylesheet" href="/styles/pizza-styles.css">
+</head>
+<body>
+    <div id="main">
+        <h1>Admin Login</h1>
+ 
+        <!-- Only show the error message if there is one -->
+        <% if (error) { %>
+            <p class="login-error"><%= error %></p>
+        <% } %>
+ 
+        <form action="/login" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+ 
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+ 
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+</body>
+</html>
