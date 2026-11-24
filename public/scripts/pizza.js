@@ -38,10 +38,9 @@ document.getElementById("pizza-form").onsubmit = () => {
     if (size == "none") {
         document.getElementById("err-size").style.display = "block";
         isValid = false;
-
     }
 
-    // Do not submit the form if data is in-valid
+    // Do not submit the form if data is INvalid
     return isValid;
 };
 

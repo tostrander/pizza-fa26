@@ -11,6 +11,9 @@ dotenv.config();
 // Import express-session
 import session from 'express-session';
 
+// Import server-side validation function
+import {validateForm} from './validation.js'; 
+
 // Create a connection pool
 const pool = mysql2.createPool({
     host: process.env.DB_HOST,
@@ -154,6 +157,15 @@ app.post('/submit-order', async(req, res) => {
     order.timestamp = new Date();
     console.log(order);
 
+    // Validate the data on the *server*
+    const valid = validateForm(order);
+    
+    if (!valid.isValid) {
+        console.log(valid);
+        res.render('home', { errors: valid.errors });
+        return;
+    }
+
     // Convert toppings array to a comma-delimited string
     order.toppings = Array.isArray(order.toppings) ?
         order.toppings.join(", ") : "";
@@ -164,25 +176,32 @@ app.post('/submit-order', async(req, res) => {
     VALUES(?, ?, ?, ?, ?, ?, ?)`;
 
     // Create an array of parameters from order data
+    // Set optional items to null if no value was input
     const params = [
         order.fname,
         order.lname,
-        order.email,
+        order.email || null,
         order.size,
         order.method,
-        order.toppings,
-        order.comment
+        order.toppings || null,
+        order.comment || null
     ];
 
-    // Execute the query
-    const [result] = await pool.execute(sql, params);
+    try {
+        // Execute the query
+        const [result] = await pool.execute(sql, params);
 
-    // Get the id from the newly inserted row
-    order.id = result.insertId;
-    console.log("A new row was inserted with ID " + order.id);
+        // Get the id from the newly inserted row
+        order.id = result.insertId;
+        console.log("A new row was inserted with ID " + order.id);
 
-    // Display the confirmation page
-    res.render('confirm', { order });
+        // Display the confirmation page
+        res.render('confirm', { order });
+    } catch (err) {
+        console.error('Database error: ', err);
+        res.status(500).send(`Sorry, we could not 
+            save your order. Please try again.`);
+    }
 });
 
 // Add an admin route
